@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesses Audio Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="desktop-app">
+        <h1 class="app-title">Jesse Music Desktop</h1>
+        
+        <div class="player-wrapper">
+            <div class="player-blur-bg" id="playerBg"></div>
+            <div class="player-content">
+                
+                <div class="main-panel">
+                    <div class="panel-header">
+                        <label for="fileUpload" class="action-btn upload-btn">
+                            <span class="btn-icon-wrapper red-border"><span class="icon upload-icon"></span></span>
+                            <span class="btn-text">UPLOAD</span>
+                        </label>
+                        <input type="file" id="fileUpload" accept="audio/*" multiple style="display: none;">
+                        
+                        <span class="playing-title">PLAYING</span>
+                    </div>
+
+                    <div class="playing-content">
+                        <div class="cover-glass">
+                            <img src="cover.jpg" class="album-cover" id="albumCover" alt="Album Cover">
+                        </div>
+                        
+                        <div class="track-details">
+                            <div class="track-info">
+                                <h2 class="track-title" id="trackTitle">mario</h2>
+                                <p class="track-artist" id="trackArtist">NINTENDO</p>
+                            </div>
+                            
+                            <button id="downloadBtn" class="action-btn download-btn">
+                                <span class="btn-icon-wrapper blue-border"><span class="icon download-icon"></span></span>
+                                <span class="btn-text">DOWNLOAD SONG</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="queue-panel">
+                    <h2 class="queue-title">QUEUE</h2>
+                    <div class="queue-list" id="queueList">
+                        <!-- Queue items will be injected here via JS -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Controls Bar -->
+            <div class="bottom-bar">
+                <div class="progress-section">
+                    <span id="currentTime">0:00</span>
+                    <div class="progress-wrapper">
+                        <input type="range" id="progressBar" value="0" max="100" step="0.1">
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+
+                <div class="main-controls">
+                    <button id="prevTrackBtn" class="base-button control-button" title="Previous Track"><span class="icon skip-prev"></span></button>
+                    <button id="skipBackwardBtn" class="base-button control-button" title="Skip Backward"><span class="icon fast-backward glow-blue"></span></button>
+                    <button id="playPauseBtn" class="base-button play-button" title="Play/Pause">
+                        <span id="playIcon" class="icon play"></span>
+                        <span id="pauseIcon" class="icon pause" style="display:none;"></span>
+                    </button>
+                    <button id="skipForwardBtn" class="base-button control-button" title="Skip Forward"><span class="icon fast-forward glow-blue"></span></button>
+                    <button id="nextTrackBtn" class="base-button control-button" title="Next Track"><span class="icon skip-next"></span></button>
+                </div>
+
+                <div class="secondary-controls">
+                    <button id="shuffleBtn" class="base-button action-button toggle-btn" title="Shuffle"><span class="icon shuffle"></span></button>
+                    <button id="loopBtn" class="base-button action-button toggle-btn" title="Loop"><span class="icon loop"></span></button>
+                    <div class="volume-wrapper">
+                        <button id="muteBtn" class="base-button action-button" title="Mute/Unmute">
+                            <span id="volIcon" class="icon volume-max"></span>
+                        </button>
+                        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="1">
+                    </div>
+                    <div class="speed-control" id="speedBtn" title="Speed (S)"><span id="speedLabel">1.0x</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="myAudio"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
